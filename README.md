@@ -3,7 +3,7 @@
 Course website for a five-day AI literacy bootcamp for young people in Kenya, in or out of school.
 No prior AI knowledge and no coding needed.
 
-**Live site:** https://YOUR-USERNAME.github.io/ailiteracy/
+**Live site:** https://kuriaspace.github.io/ailiteracy/
 
 ## What's here
 
