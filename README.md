@@ -15,8 +15,3 @@ No prior AI knowledge and no coding needed.
 | `data/matatu_delays_test.csv` | 40 new trips without the answer; students fill in `your_prediction` |
 
 The matatu data is synthetic (made up for teaching), but the patterns are realistic.
-
-## Acknowledgements
-
-Parts of this course were inspired by the open materials of the
-[CREED Machine Learning Bootcamp](https://creedaberdeen.github.io/creed-ml-bootcamp/) (Aberdeen).
