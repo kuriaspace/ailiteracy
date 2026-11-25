@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KURIASPACE AI Literacy Bootcamp</title>
+  <style>
+    /* ── Tokens ───────────────────────────────────────────── */
+    :root {
+      --bg:        #2C333C;   /* slide background */
+      --surface:   #353E48;   /* slide cards */
+      --surface2:  #303841;
+      --border:    #49515A;
+      --border-hi: #F9AE58;
+      --ink:       #E6EAF0;   /* headings */
+      --body:      #D8DEE9;   /* body text */
+      --muted:     #A6ACB9;
+      --accent:    #F9AE58;   /* slide orange */
+      --green:     #99C794;   /* slide green */
+      --gold:      #FAC863;
+      --font-head: "Courier New", Courier, monospace;
+      --font-body: "Courier New", Courier, monospace;
+      --radius:    14px;
+    }
+
+    /* ── Reset ────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--body);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+    a { color: var(--green); }
+    h1, h2, h3 { font-family: var(--font-head); color: var(--ink); }
+
+    /* ── Nav ──────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(42, 48, 57, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .brand { font-weight: 800; color: var(--ink); letter-spacing: 0.02em; }
+    .brand em { font-style: normal; color: var(--accent); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 0.9rem; color: var(--muted); text-decoration: none; font-weight: 500; }
+    .nav-links a:hover { color: var(--accent); }
+    @media (max-width: 700px) { .nav-links { display: none; } }
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    .hero {
+      max-width: 900px; margin: 0 auto;
+      padding: 4.5rem 2rem 3.5rem;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+      color: var(--green); background: rgba(153,199,148,0.12);
+      padding: 0.3rem 0.8rem; border-radius: 999px;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.3rem, 5.5vw, 3.8rem);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero-lead { font-size: 1.15rem; max-width: 620px; margin-bottom: 2rem; }
+    .facts {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .fact {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1rem 1.2rem;
+    }
+    .fact b { display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+    .fact span { font-weight: 600; color: var(--ink); }
+
+    /* ── Section wrapper ──────────────────────────────────── */
+    .section { max-width: 900px; margin: 0 auto; padding: 3.5rem 2rem; }
+    .section + .section { border-top: 1px solid var(--border); }
+    .eyebrow {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem;
+    }
+    .section h2 { font-size: 2rem; margin-bottom: 2rem; }
+    .section h3.sub { font-size: 1.25rem; margin: 2.4rem 0 1rem; }
+
+    /* ── Day cards ────────────────────────────────────────── */
+    .day {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--green);
+      border-radius: var(--radius);
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.4rem;
+    }
+    .day.highlight { border-left-color: var(--accent); }
+    .day-num {
+      display: inline-block; font-size: 0.78rem; font-weight: 700;
+      color: #2C333C; background: var(--green);
+      padding: 0.15rem 0.6rem; border-radius: 6px; margin-bottom: 0.6rem;
+    }
+    .day.highlight .day-num { background: var(--accent); }
+    .day h3 { font-size: 1.4rem; margin-bottom: 0.4rem; }
+    .day-desc { color: var(--muted); margin-bottom: 1.3rem; }
+    .day-body { display: grid; grid-template-columns: 1fr auto; gap: 1.8rem; align-items: start; }
+    @media (max-width: 640px) { .day-body { grid-template-columns: 1fr; } }
+    .day h4 { font-size: 0.85rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem; }
+    .learn { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .learn li { padding-left: 1.5rem; position: relative; font-size: 0.95rem; }
+    .learn li::before {
+      content: "✓"; position: absolute; left: 0; top: 0;
+      color: var(--green); font-weight: 700;
+    }
+    .resources { display: flex; flex-direction: column; gap: 0.55rem; min-width: 200px; }
+
+    /* ── Buttons ──────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+      padding: 0.55rem 1rem; border-radius: 999px;
+      font: inherit; font-size: 0.85rem; font-weight: 600;
+      cursor: pointer; text-decoration: none; white-space: nowrap;
+      border: 1px solid transparent; transition: filter 0.15s;
+    }
+    .btn:hover { filter: brightness(0.93); }
+    .btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .btn-primary { background: var(--accent); color: #2C333C; }
+    .btn-green   { background: rgba(153,199,148,0.12); color: var(--green); border-color: rgba(153,199,148,0.4); }
+    .btn-plain   { background: var(--surface2); color: var(--ink); border-color: var(--border); }
+    .btn-note    { background: transparent; color: var(--muted); border: 1px dashed var(--border); cursor: default; pointer-events: none; }
+
+    /* ── Assignment ───────────────────────────────────────── */
+    .assignment {
+      background: #3A3B3C;
+      border: 1px solid rgba(250,200,99,0.35);
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      margin: -0.4rem 0 1.4rem 1.5rem;
+      display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start;
+    }
+    .assignment-info { flex: 1; min-width: 240px; }
+    .tag {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      color: var(--gold); margin-bottom: 0.4rem; letter-spacing: 0.04em;
+    }
+    .assignment h4 { font-family: var(--font-head); font-size: 1.1rem; color: var(--ink); }
+    .assignment .meta { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.6rem; }
+    .assignment p { font-size: 0.93rem; }
+    .assignment .actions { display: flex; flex-direction: column; gap: 0.55rem; }
+
+    /* ── Day 5 brief ──────────────────────────────────────── */
+    .brief { list-style: none; counter-reset: b; display: grid; gap: 0.4rem; }
+    .brief li { counter-increment: b; padding-left: 2rem; position: relative; font-size: 0.95rem; }
+    .brief li::before {
+      content: counter(b); position: absolute; left: 0; top: 0.1rem;
+      width: 1.4rem; height: 1.4rem; border-radius: 50%;
+      background: rgba(249,174,88,0.15); color: var(--accent);
+      font-size: 0.75rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .brief-note { margin-top: 0.9rem; font-size: 0.88rem; color: var(--muted); }
+
+    /* ── Generic card grid (rubric, glossary) ─────────────── */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.1rem 1.3rem;
+    }
+    .card h4 { font-size: 0.98rem; color: var(--ink); margin-bottom: 0.3rem; }
+    .card h4 .pts { float: right; color: var(--accent); font-weight: 700; }
+    .card p { font-size: 0.9rem; color: var(--muted); }
+    .card.total { background: #2A3039; border-color: var(--accent); }
+    .card.total h4, .card.total p { color: var(--body); }
+    .card.total .pts { color: var(--accent); }
+    .intro { max-width: 680px; margin-bottom: 1.8rem; }
+
+    /* ── Media cards (talks, films, links) ────────────────── */
+    .media { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
+    .media-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.3rem 1.4rem;
+      display: flex; flex-direction: column;
+    }
+    .media-card .kind { font-size: 0.75rem; font-weight: 700; color: var(--green); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .media-card h4 { font-family: var(--font-head); font-size: 1.1rem; color: var(--ink); margin-bottom: 0.3rem; }
+    .media-card .who { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .media-card p { font-size: 0.9rem; flex: 1; margin-bottom: 1rem; }
+    .media-card .btn { align-self: flex-start; }
+
+    /* ── Glossary ─────────────────────────────────────────── */
+    .glossary dt { font-weight: 700; color: var(--ink); }
+    .glossary .card dt { margin-bottom: 0.25rem; }
+    .glossary .card dd { font-size: 0.9rem; color: var(--muted); }
+
+    /* ── Feedback ─────────────────────────────────────────── */
+    .questions {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem 2rem; margin-bottom: 1.8rem;
+    }
+    .questions ol { padding-left: 1.2rem; display: grid; gap: 0.5rem; }
+    .questions .hint { color: var(--muted); font-size: 0.85rem; }
+    .questions .note { margin-top: 0.9rem; font-size: 0.85rem; color: var(--muted); }
+    .form-frame { width: 100%; height: 820px; border: 1px solid var(--border); border-radius: var(--radius); background: #fff; display: block; }
+
+    /* ── Team ─────────────────────────────────────────────── */
+    .team { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+    .person {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.6rem 1.2rem; text-align: center;
+    }
+    .initials {
+      width: 68px; height: 68px; border-radius: 50%; margin: 0 auto 0.9rem;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.2rem; color: #2C333C; background: var(--green);
+    }
+    .person.lead .initials { background: var(--accent); }
+    .person h4 { color: var(--ink); }
+    .person .role { font-size: 0.82rem; color: var(--muted); }
+
+    /* ── Footer ───────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem; text-align: center; font-size: 0.85rem; color: var(--muted);
+    }
+    footer strong { color: var(--ink); }
+    footer .credit { margin-top: 0.4rem; font-size: 0.78rem; }
+
+    /* ── Slide viewer (view only) ─────────────────────────── */
+    .sv { position: fixed; inset: 0; z-index: 500; background: rgba(20,24,29,0.97); display: none; flex-direction: column; }
+    .sv.open { display: flex; }
+    .sv-bar { display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 1.2rem; font-size: 0.9rem; color: var(--body); }
+    .sv-bar strong { color: var(--accent); }
+    .sv-close { background: none; border: 1px solid var(--border); color: var(--body); border-radius: 999px; padding: 0.3rem 0.9rem; cursor: pointer; font: inherit; }
+    .sv-stage { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; padding: 1rem 4rem; min-height: 0; }
+    .sv-stage img { max-width: 100%; max-height: 100%; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); user-select: none; -webkit-user-drag: none; -webkit-touch-callout: none; pointer-events: none; }
+    .sv-nav { position: absolute; top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--border); color: var(--ink); width: 44px; height: 44px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; }
+    .sv-prev { left: 0.8rem; } .sv-next { right: 0.8rem; }
+    .sv-nav:disabled { opacity: 0.3; cursor: default; }
+    @media (max-width: 600px) { .sv-stage { padding: 0.5rem; } .sv-nav { top: auto; bottom: 0.5rem; transform: none; } }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="brand">KURIA<em>SPACE</em> · AI Literacy</div>
+  <ul class="nav-links">
+    <li><a href="#days">Days</a></li>
+    <li><a href="#project">Project</a></li>
+    <li><a href="#talks">Talks</a></li>
+    <li><a href="#glossary">Glossary</a></li>
+    <li><a href="#feedback">Feedback</a></li>
+    <li><a href="#team">Team</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <p class="hero-eyebrow">AI LITERACY BOOTCAMP · KENYA</p>
+  <h1>Understand AI.<br><span>Think critically.</span></h1>
+  <p class="hero-lead">
+    A hands-on week for young people who want to know how AI really works,
+    use it well, and question it when it gets things wrong.
+  </p>
+  <div class="facts">
+    <div class="fact"><b>Who it's for</b><span>Young people in Kenya, in or out of school</span></div>
+    <div class="fact"><b>How long</b><span>4 teaching days + 1 presentation day, 5 hours a day</span></div>
+    <div class="fact"><b>What you need</b><span>Curiosity. No AI knowledge, no coding</span></div>
+  </div>
+</header>
+
+<!-- Days -->
+<section class="section" id="days">
+  <p class="eyebrow">The programme</p>
+  <h2>Your week, day by day</h2>
+
+  <!-- Day 1 -->
+  <article class="day">
+    <span class="day-num">Day 1</span>
+    <h3>Understanding Artificial Intelligence</h3>
+    <p class="day-desc">Discover what artificial intelligence is, how it works and why it is becoming increasingly important in everyday life in Kenya. Featuring two live guest talks from the UK.</p>
+    <div class="day-body">
+      <div>
+        <h4>What you will learn</h4>
+        <ul class="learn">
+          <li>Understand the meaning of artificial intelligence and how it has evolved</li>
+          <li>The difference between artificial intelligence, machine learning and generative AI</li>
+          <li>How AI tools such as ChatGPT, Gemini and other intelligent assistants work</li>
+          <li>How AI generates responses and why it can sometimes produce incorrect information</li>
+          <li>The strengths, limitations and potential risks of AI</li>
+          <li>Examples of AI in everyday life: farming, health, mobile money, learning and jobs</li>
+        </ul>
+      </div>
+      <div class="resources">
+        <h4>Resources</h4>
+        <button type="button" class="btn btn-primary" data-deck="1" data-count="30">View Day 1 slides</button>
+        <span class="btn btn-note">2 guest talks on Teams</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- Day 2 -->
+  <article class="day">
+    <span class="day-num">Day 2</span>
+    <h3>How Machines Learn</h3>
+    <p class="day-desc">Be the algorithm with 200 matatu trips from towns across Kenya, train your own image model in the browser, then try to break it.</p>
+    <div class="day-body">
+      <div>
+        <h4>What you will learn</h4>
+        <ul class="learn">
+          <li>The difference between traditional programming (rules in) and machine learning (examples in)</li>
+          <li>Data, features, labels, training and testing, explained with matatu-delay data</li>
+          <li>Find patterns in 200 matatu trips, write your own rules, and test them on 40 trips you have never seen</li>
+          <li>Train an image-recognition model with no code in Teachable Machine, and find out what makes it fail</li>
+          <li>Why accuracy can mislead, and why a missed illness is worse than a false alarm</li>
+          <li>How incomplete or unfair data becomes biased AI, with real case studies</li>
+        </ul>
+      </div>
+      <div class="resources">
+        <h4>Resources</h4>
+        <button type="button" class="btn btn-primary" data-deck="2" data-count="27">View Day 2 slides</button>
+        <a href="./data/matatu_delays_training.csv" class="btn btn-green" download>Training trips (CSV)</a>
+        <a href="./data/matatu_delays_test.csv" class="btn btn-green" download>Test trips (CSV)</a>
+        <a href="https://teachablemachine.withgoogle.com" target="_blank" rel="noopener" class="btn btn-plain">Open Teachable Machine ↗</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Day 2 reading -->
+  <aside class="assignment">
+    <div class="assignment-info">
+      <span class="tag">DAY 2 READING</span>
+      <h4>Gender Shades</h4>
+      <p class="meta">Joy Buolamwini &amp; Timnit Gebru, Conference on Fairness, Accountability and Transparency, 2018</p>
+      <p>
+        Two researchers tested face-analysis systems from three big tech companies and found they worked
+        almost perfectly on lighter-skinned men but failed far more often on darker-skinned women, because
+        of who was missing from the training data. Read the introduction and the results, then come ready
+        to discuss: who should have caught this, and how would you test an AI tool used in Kenya?
+      </p>
+    </div>
+    <div class="actions">
+      <a href="https://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf" target="_blank" rel="noopener" class="btn btn-primary">Read the paper (PDF) ↗</a>
+      <a href="https://www.gendershades.org" target="_blank" rel="noopener" class="btn btn-plain">Short video summary ↗</a>
+    </div>
+  </aside>
+
+  <!-- Day 3 -->
+  <article class="day highlight">
+    <span class="day-num">Day 3</span>
+    <h3>Using AI Well</h3>
+    <p class="day-desc">Prompt it, check it, own it. The practical skills you will use every week, in school, work and daily life.</p>
+    <div class="day-body">
+      <div>
+        <h4>What you will learn</h4>
+        <ul class="learn">
+          <li>Write better prompts with the R-T-C-F pattern: Role, Task, Context, Format</li>
+          <li>Use AI as a study partner (explain, quiz, plan), not a ghost-writer</li>
+          <li>Verify any claim in minutes with the SIFT method</li>
+          <li>Spot deepfakes and AI-powered scams, and why checking the source beats spotting glitches</li>
+          <li>What honest AI use looks like in school and at work, and how to write an AI-use disclosure</li>
+        </ul>
+      </div>
+      <div class="resources">
+        <h4>Resources</h4>
+        <button type="button" class="btn btn-primary" data-deck="3" data-count="27">View Day 3 slides</button>
+        <span class="btn btn-note">Prompt Lab cards in class</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- Day 3 assignment -->
+  <aside class="assignment">
+    <div class="assignment-info">
+      <span class="tag">DAY 3 WRITTEN TASK</span>
+      <h4>Catch it out</h4>
+      <p class="meta">At least one paragraph · due Day 4, 09:00</p>
+      <p>
+        Describe one AI answer you received this week that was wrong, incomplete or misleading.
+        How did you notice? How did you verify the correct answer? What does this teach you
+        about trusting AI?
+      </p>
+    </div>
+    <div class="actions">
+      <!-- TODO: replace your.email@example.com with the course email address -->
+      <a href="mailto:your.email@example.com?subject=Day%203%20Task%3A%20Catch%20it%20out&body=Hi%2C%20here%20is%20my%20Day%203%20reflection%3A" class="btn btn-primary">Email your response</a>
+    </div>
+  </aside>
+
+  <!-- Day 4 -->
+  <article class="day">
+    <span class="day-num">Day 4</span>
+    <h3>Responsible AI and the Future</h3>
+    <p class="day-desc">Who is responsible when AI gets it wrong? Privacy, high-stakes AI decisions, jobs, Africa's AI future, and a live debate.</p>
+    <div class="day-body">
+      <div>
+        <h4>What you will learn</h4>
+        <ul class="learn">
+          <li>What is safe to share with AI tools, and your rights under Kenya's Data Protection Act, 2019</li>
+          <li>Why big decisions about health, money and school need a human in the loop: automation complacency, black boxes and skill fade</li>
+          <li>Levels of automation, from lane-drift warnings to driverless taxis: who is in control?</li>
+          <li>AI, jobs and skills, and the hidden human labour behind AI, including in Kenya</li>
+          <li>Kenya's National AI Strategy 2025–2030 at a glance</li>
+          <li>Debate: should schools use facial recognition to take attendance? Then finish your Day 5 presentation</li>
+        </ul>
+      </div>
+      <div class="resources">
+        <h4>Resources</h4>
+        <button type="button" class="btn btn-primary" data-deck="4" data-count="27">View Day 4 slides</button>
+        <span class="btn btn-note">Project studio: 13:00</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- Day 5 -->
+  <article class="day highlight">
+    <span class="day-num">Day 5</span>
+    <h3>Presentation Day: AI Under the Microscope</h3>
+    <p class="day-desc">Today you show what you understand. Your group explains and judges a real AI system in front of a panel.</p>
+    <div class="day-body">
+      <div>
+        <h4>Your presentation must cover</h4>
+        <ol class="brief">
+          <li>What the AI system is and who uses it</li>
+          <li>How it works: data → learning → output</li>
+          <li>A demo, including one check you made on it</li>
+          <li>Benefits, backed by evidence</li>
+          <li>Risks, limits and bias</li>
+          <li>Three rules for responsible use</li>
+          <li>How you used AI to prepare (disclosure)</li>
+          <li>At least three credible sources</li>
+        </ol>
+        <p class="brief-note"><strong>Format:</strong> 10 minutes + 5 minutes of questions, 6–10 slides. Every team member speaks, and the judges will ask about your sources.</p>
+      </div>
+      <div class="resources">
+        <h4>Resources</h4>
+        <button type="button" class="btn btn-primary" data-deck="5" data-count="15">View Day 5 slides</button>
+        <a href="#project" class="btn btn-plain">Marking rubric ↓</a>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- Project + rubric -->
+<section class="section" id="project">
+  <p class="eyebrow">Day 5 project</p>
+  <h2>How you will be marked</h2>
+
+  <p class="intro">
+    Groups of 4–5 choose one topic on Day 2: AI chatbots as study assistants · TikTok and YouTube recommendation feeds ·
+    facial recognition and face filters · AI in hiring · deepfakes · mobile-money fraud detection ·
+    crop-disease apps · AI translation for African languages · AI in medical diagnosis · or your own idea (with approval).
+  </p>
+
+  <div class="grid">
+    <div class="card"><h4>How the AI works <span class="pts">20</span></h4><p>A clear data → learning → output explanation with a diagram. Names the data it learns from. Uses features, labels and training correctly.</p></div>
+    <div class="card"><h4>Application and evidence <span class="pts">15</span></h4><p>Clear problem, users and context. Claims backed by at least three credible, cited sources.</p></div>
+    <div class="card"><h4>Critical evaluation <span class="pts">20</span></h4><p>Balanced and specific: who benefits and who could be harmed. Explains at least one bias or limitation and why it happens.</p></div>
+    <div class="card"><h4>Responsible-use rules <span class="pts">15</span></h4><p>Three concrete, realistic rules that follow from the risks, including who is responsible.</p></div>
+    <div class="card"><h4>Demo and AI disclosure <span class="pts">10</span></h4><p>A live demo or screenshots, including a moment where you checked the AI. Honest disclosure of how AI helped you.</p></div>
+    <div class="card"><h4>Communication <span class="pts">10</span></h4><p>Clear structure, readable slides, within time, and every member speaks.</p></div>
+    <div class="card"><h4>Questions and answers <span class="pts">10</span></h4><p>Accurate answers, honest about uncertainty, with several members answering.</p></div>
+    <div class="card total"><h4>Total <span class="pts">100</span></h4><p>80+ Distinction · 65–79 Merit · 50–64 Pass. Awards: Best Overall, Sharpest Critical Thinking, Best Demonstration, Best Teamwork and Delivery.</p></div>
+  </div>
+</section>
+
+<!-- Guest talks and extra viewing -->
+<section class="section" id="talks">
+  <p class="eyebrow">Talks, films and further learning</p>
+  <h2>Voices from the field</h2>
+
+  <div class="media">
+    <div class="media-card">
+      <p class="kind">Guest talk · Day 1 · 11:00 · Live on Teams</p>
+      <h4>From Kenya to a UK PhD</h4>
+      <p class="who">[Guest name] · PhD researcher in Information Technology, UK</p>
+      <p>What AI looks like from the inside of a research degree, and how to build a career in technology from East Africa.</p>
+      <span class="btn btn-note">Recording coming soon</span>
+    </div>
+    <div class="media-card">
+      <p class="kind">Guest talk · Day 1 · 13:00 · Live on Teams</p>
+      <h4>AI in Africa: Opportunity and Responsibility</h4>
+      <p class="who">Dr [Guest name] · PhD in Information Technology, UK</p>
+      <p>Where AI could make the biggest difference across the continent, the risks to watch, and the skills that will matter.</p>
+      <span class="btn btn-note">Recording coming soon</span>
+    </div>
+  </div>
+
+  <h3 class="sub">Two free documentaries to watch</h3>
+  <div class="media">
+    <div class="media-card">
+      <p class="kind">Watch before Day 1 · ~90 min · free</p>
+      <h4>The Thinking Game (2024)</h4>
+      <p>Inside Google DeepMind with Demis Hassabis, from game-playing AI to AlphaFold, the protein breakthrough that won a Nobel Prize. As you watch, ask: what problem in your world would you point an AI at?</p>
+      <a href="https://blog.google/technology/google-deepmind/the-thinking-game/" target="_blank" rel="noopener" class="btn btn-green">Watch free ↗</a>
+    </div>
+    <div class="media-card">
+      <p class="kind">Watch after Day 2 · ~90 min · free</p>
+      <h4>AlphaGo – The Movie (2017)</h4>
+      <p>An AI learns the ancient game of Go and takes on world champion Lee Sedol. As you watch, ask: how did the machine learn, and how did the human respond?</p>
+      <a href="https://www.youtube.com/watch?v=WXuK6gekU1Y" target="_blank" rel="noopener" class="btn btn-green">Watch free on YouTube ↗</a>
+    </div>
+  </div>
+
+  <h3 class="sub">Keep learning after the bootcamp</h3>
+  <div class="media">
+    <div class="media-card">
+      <p class="kind">Free online course</p>
+      <h4>Elements of AI</h4>
+      <p>A free, beginner-friendly online course on what AI is and how it affects society, from the University of Helsinki.</p>
+      <a href="https://www.elementsofai.com" target="_blank" rel="noopener" class="btn btn-green">Open course ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- Glossary -->
+<section class="section glossary" id="glossary">
+  <p class="eyebrow">Glossary</p>
+  <h2>AI words in plain language</h2>
+
+  <dl class="grid">
+    <div class="card"><dt>Artificial Intelligence (AI)</dt><dd>Technology that lets computers do tasks that normally need human intelligence, such as recognising faces, understanding speech, translating or making predictions.</dd></div>
+    <div class="card"><dt>Machine Learning (ML)</dt><dd>A type of AI that learns patterns from examples (data) instead of following rules written by a person.</dd></div>
+    <div class="card"><dt>Deep Learning</dt><dd>Machine learning using large neural networks. It powers face recognition, speech recognition and translation.</dd></div>
+    <div class="card"><dt>Generative AI</dt><dd>AI that creates new content (text, images, audio, video) instead of only sorting or predicting. ChatGPT, Gemini and image generators are examples.</dd></div>
+    <div class="card"><dt>Large Language Model (LLM)</dt><dd>The type of model behind ChatGPT, Claude and Gemini. Trained on huge amounts of text to predict the next word, again and again, which produces what feels like conversation.</dd></div>
+    <div class="card"><dt>Prompt</dt><dd>The instruction or question you give an AI tool. Better prompts include a role, a task, context and a format (R-T-C-F).</dd></div>
+    <div class="card"><dt>Hallucination</dt><dd>A confident AI answer that is false or invented, such as a fake reference or a made-up fact. Always verify important claims.</dd></div>
+    <div class="card"><dt>Data</dt><dd>The examples an AI learns from. A model only knows what its data has shown it: incomplete or unfair data leads to incomplete or unfair AI.</dd></div>
+    <div class="card"><dt>Feature</dt><dd>A clue the model uses to make a prediction. For a matatu trip: weather, time of day, whether it waited long to fill up.</dd></div>
+    <div class="card"><dt>Label</dt><dd>The answer the model is trying to predict, e.g. "delayed: yes or no". Labels are given during training.</dd></div>
+    <div class="card"><dt>Training and Testing</dt><dd>The model learns from training data, then is tested on data it has never seen. Testing on data it already saw is like seeing the exam paper early.</dd></div>
+    <div class="card"><dt>Supervised Learning</dt><dd>Learning from examples that come with the correct answers. The most common type of machine learning.</dd></div>
+    <div class="card"><dt>Unsupervised Learning</dt><dd>Learning without answers: the model finds groups or patterns in the data by itself.</dd></div>
+    <div class="card"><dt>Accuracy and Baseline</dt><dd>Accuracy is the percentage of correct predictions. Always compare it with a baseline, such as "always guess the most common answer", because high accuracy can hide a useless model.</dd></div>
+    <div class="card"><dt>False Alarm vs Miss</dt><dd>The two kinds of mistake. In high-stakes systems, a miss (such as an undetected illness) is usually far worse than a false alarm.</dd></div>
+    <div class="card"><dt>Bias in AI</dt><dd>When an AI system works worse for, or treats unfairly, certain groups, usually because its data under-represented them or reflected past unfairness.</dd></div>
+    <div class="card"><dt>Deepfake</dt><dd>AI-generated or AI-altered images, audio or video that make someone appear to say or do something they never did.</dd></div>
+    <div class="card"><dt>SIFT</dt><dd>Four moves to check a claim: Stop, Investigate the source, Find better coverage, Trace claims to the original.</dd></div>
+    <div class="card"><dt>Human in the Loop</dt><dd>A design where a qualified person reviews or makes the final decision. The class rule: the AI informs, a qualified human decides, and the decision is recorded.</dd></div>
+    <div class="card"><dt>Automation Complacency</dt><dd>When people trust a system that is usually right so much that they stop checking it, and miss the rare time it is wrong.</dd></div>
+  </dl>
+</section>
+
+<!-- Feedback -->
+<section class="section" id="feedback">
+  <p class="eyebrow">Feedback</p>
+  <h2>How was your week?</h2>
+
+  <p class="intro">
+    Anonymous. No names, no pressure. This takes about three minutes
+    and helps us make the next bootcamp even better.
+  </p>
+
+  <div class="questions">
+    <h4 style="margin-bottom:0.8rem;">What the form asks</h4>
+    <ol>
+      <li>What are you doing right now: school, college, work, business, or looking for work? <span class="hint">(Short answer)</span></li>
+      <li>Before this week, how often did you use AI tools? <span class="hint">(Never / Sometimes / Often)</span></li>
+      <li>After this week, how confident do you feel explaining and using AI? <span class="hint">(1 = not at all → 5 = very confident)</span></li>
+      <li>Speak freely: what did you enjoy about the bootcamp?</li>
+      <li>What would you suggest to make it better, and what did you not enjoy?</li>
+    </ol>
+    <p class="note">No name required. All responses go to the course team.</p>
+  </div>
+
+  <iframe class="form-frame"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSeYzszKa843gvjbkwQwwb_wloAXrQ5NRaVsU9vbIeTFUgJcdQ/viewform?embedded=true"
+          title="Bootcamp feedback form" loading="lazy">Loading…</iframe>
+</section>
+
+<!-- Team -->
+<section class="section" id="team">
+  <p class="eyebrow">Team</p>
+  <h2>The people behind it</h2>
+
+  <div class="team">
+    <div class="person lead">
+      <div class="initials">IK</div>
+      <h4>Isaac Kuria</h4>
+      <p class="role">Lead Instructor · Course designer</p>
+    </div>
+    <div class="person">
+      <div class="initials">G1</div>
+      <h4>[Guest name]</h4>
+      <p class="role">Guest Speaker · Researcher in IT</p>
+    </div>
+    <div class="person">
+      <div class="initials">G2</div>
+      <h4>[Guest name]</h4>
+      <p class="role">Guest Speaker · PhD in IT</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p><strong>KURIASPACE</strong> · AI Literacy Bootcamp · Kenya</p>
+  <p class="credit">With thanks to the <a href="https://creedaberdeen.github.io/creed-ml-bootcamp/" target="_blank" rel="noopener">CREED Machine Learning Bootcamp</a> (Aberdeen), whose open materials inspired parts of this course.</p>
+</footer>
+
+<!-- Slide viewer (view only, no download) -->
+<div class="sv" id="sv" role="dialog" aria-modal="true" aria-label="Slide viewer">
+  <div class="sv-bar">
+    <span><strong id="sv-title">Day 1</strong> · slide <span id="sv-num">1</span> / <span id="sv-total">1</span></span>
+    <button class="sv-close" id="sv-close" type="button">Close ✕</button>
+  </div>
+  <div class="sv-stage" id="sv-stage">
+    <button class="sv-nav sv-prev" id="sv-prev" type="button" aria-label="Previous slide">‹</button>
+    <img id="sv-img" alt="" draggable="false" />
+    <button class="sv-nav sv-next" id="sv-next" type="button" aria-label="Next slide">›</button>
+  </div>
+</div>
+<script>
+(function () {
+  var sv = document.getElementById('sv'), img = document.getElementById('sv-img'),
+      num = document.getElementById('sv-num'), total = document.getElementById('sv-total'),
+      title = document.getElementById('sv-title'), prev = document.getElementById('sv-prev'),
+      next = document.getElementById('sv-next'), deck = 1, count = 1, i = 1, touchX = null;
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function src(n) { return './slides/view/day' + deck + '/s-' + pad(n) + '.jpg'; }
+  function show() {
+    img.src = src(i); img.alt = 'Day ' + deck + ' slide ' + i;
+    num.textContent = i; prev.disabled = i === 1; next.disabled = i === count;
+    if (i < count) { new Image().src = src(i + 1); }
+  }
+  function open(d, c) { deck = d; count = c; i = 1; title.textContent = 'Day ' + d;
+    total.textContent = c; show(); sv.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function close() { sv.classList.remove('open'); document.body.style.overflow = ''; }
+  function go(k) { var n = i + k; if (n >= 1 && n <= count) { i = n; show(); } }
+  document.querySelectorAll('[data-deck]').forEach(function (b) {
+    b.addEventListener('click', function () { open(+b.dataset.deck, +b.dataset.count); });
+  });
+  prev.onclick = function () { go(-1); }; next.onclick = function () { go(1); };
+  document.getElementById('sv-close').onclick = close;
+  document.addEventListener('keydown', function (e) {
+    if (!sv.classList.contains('open')) return;
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); }
+    else if (e.key === 'ArrowLeft') go(-1); else if (e.key === 'Escape') close();
+  });
+  sv.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+  var stage = document.getElementById('sv-stage');
+  stage.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend', function (e) {
+    if (touchX === null) return; var dx = e.changedTouches[0].clientX - touchX; touchX = null;
+    if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+  });
+})();
+</script>
+
+</body>
+</html>

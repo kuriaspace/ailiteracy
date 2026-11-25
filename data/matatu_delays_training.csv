@@ -1,0 +1,201 @@
+trip_id,start_town,destination,day,time_of_day,weather,road_type,waited_long_to_fill,delayed
+T001,Thika,Murang'a,Wed,Midday,Cloudy,Town roads,No,No
+T002,Nairobi,Ngong,Tue,Evening rush,Cloudy,Highway,No,No
+T003,Nairobi,Kiambu,Mon,Evening rush,Cloudy,Highway,No,No
+T004,Mombasa,Kilifi,Sun,Midday,Sunny,Town roads,Yes,Yes
+T005,Nairobi,Ngong,Sat,Morning rush,Cloudy,Town roads,No,No
+T006,Nairobi,Kitengela,Tue,Evening rush,Sunny,Highway,No,No
+T007,Mombasa,Ukunda,Tue,Morning rush,Sunny,Highway,No,No
+T008,Nairobi,Naivasha,Thu,Midday,Sunny,Town roads,Yes,Yes
+T009,Nairobi,Kiambu,Mon,Morning rush,Sunny,Town roads,No,No
+T010,Nairobi,Machakos,Sun,Evening rush,Cloudy,Town roads,No,No
+T011,Nairobi,Kiambu,Sun,Evening rush,Sunny,Highway,No,No
+T012,Nairobi,Ngong,Fri,Evening rush,Cloudy,Highway,No,Yes
+T013,Nairobi,Naivasha,Thu,Morning rush,Cloudy,Town roads,Yes,Yes
+T014,Nairobi,Naivasha,Mon,Evening rush,Rain,Highway,No,Yes
+T015,Nakuru,Eldoret,Wed,Morning rush,Rain,Highway,Yes,Yes
+T016,Nairobi,Ngong,Mon,Morning rush,Sunny,Highway,No,No
+T017,Eldoret,Kitale,Sun,Midday,Rain,Town roads,No,No
+T018,Nairobi,Thika,Thu,Morning rush,Sunny,Town roads,No,No
+T019,Nakuru,Eldoret,Wed,Evening rush,Rain,Town roads,No,Yes
+T020,Eldoret,Kitale,Wed,Evening rush,Cloudy,Highway,No,No
+T021,Nairobi,Ngong,Mon,Midday,Sunny,Highway,No,Yes
+T022,Nairobi,Machakos,Mon,Morning rush,Rain,Highway,Yes,Yes
+T023,Nairobi,Kitengela,Thu,Midday,Rain,Highway,No,Yes
+T024,Nairobi,Kiambu,Sun,Evening rush,Cloudy,Highway,Yes,Yes
+T025,Nairobi,Thika,Wed,Midday,Cloudy,Highway,No,No
+T026,Nairobi,Thika,Wed,Morning rush,Sunny,Town roads,Yes,No
+T027,Nairobi,Kiambu,Sun,Evening rush,Cloudy,Highway,No,No
+T028,Nairobi,Kitengela,Sun,Morning rush,Cloudy,Town roads,Yes,Yes
+T029,Nairobi,Kitengela,Tue,Midday,Sunny,Town roads,No,No
+T030,Eldoret,Nakuru,Fri,Evening rush,Sunny,Highway,No,Yes
+T031,Nairobi,Ngong,Sun,Midday,Sunny,Town roads,No,No
+T032,Nairobi,Naivasha,Thu,Midday,Sunny,Town roads,No,No
+T033,Kisumu,Busia,Mon,Midday,Cloudy,Highway,No,No
+T034,Nairobi,Nakuru,Mon,Evening rush,Sunny,Highway,No,No
+T035,Nairobi,Ngong,Mon,Midday,Cloudy,Highway,No,No
+T036,Nairobi,Machakos,Mon,Night,Cloudy,Town roads,Yes,Yes
+T037,Eldoret,Iten,Sat,Evening rush,Sunny,Highway,No,No
+T038,Nakuru,Nairobi,Thu,Morning rush,Sunny,Town roads,Yes,No
+T039,Nairobi,Ngong,Wed,Night,Cloudy,Town roads,No,No
+T040,Nakuru,Nairobi,Fri,Morning rush,Cloudy,Highway,Yes,Yes
+T041,Nairobi,Machakos,Mon,Evening rush,Rain,Highway,No,Yes
+T042,Nairobi,Thika,Tue,Evening rush,Sunny,Highway,Yes,No
+T043,Nairobi,Kitengela,Fri,Midday,Cloudy,Highway,No,No
+T044,Nakuru,Eldoret,Sun,Midday,Sunny,Town roads,No,No
+T045,Nairobi,Kiambu,Thu,Morning rush,Cloudy,Highway,No,No
+T046,Nairobi,Kiambu,Wed,Midday,Sunny,Town roads,No,No
+T047,Nairobi,Machakos,Sun,Morning rush,Sunny,Town roads,No,No
+T048,Nairobi,Kiambu,Fri,Evening rush,Sunny,Highway,No,Yes
+T049,Mombasa,Ukunda,Wed,Midday,Cloudy,Highway,No,No
+T050,Nairobi,Thika,Wed,Morning rush,Cloudy,Town roads,No,No
+T051,Nairobi,Kiambu,Thu,Evening rush,Cloudy,Town roads,Yes,Yes
+T052,Nairobi,Naivasha,Thu,Evening rush,Sunny,Town roads,No,No
+T053,Eldoret,Kapsabet,Wed,Morning rush,Cloudy,Highway,No,No
+T054,Mombasa,Voi,Wed,Midday,Sunny,Town roads,Yes,Yes
+T055,Nairobi,Nakuru,Thu,Midday,Cloudy,Highway,No,No
+T056,Eldoret,Kapsabet,Wed,Night,Cloudy,Highway,Yes,Yes
+T057,Eldoret,Kitale,Fri,Midday,Cloudy,Highway,No,No
+T058,Nairobi,Kiambu,Thu,Night,Sunny,Town roads,Yes,Yes
+T059,Kisumu,Kakamega,Sat,Evening rush,Cloudy,Highway,No,No
+T060,Nairobi,Kitengela,Sat,Morning rush,Sunny,Highway,No,No
+T061,Nairobi,Machakos,Fri,Midday,Sunny,Highway,No,No
+T062,Nakuru,Kericho,Mon,Midday,Sunny,Highway,No,No
+T063,Mombasa,Ukunda,Thu,Evening rush,Sunny,Town roads,No,No
+T064,Nairobi,Machakos,Fri,Evening rush,Cloudy,Town roads,No,No
+T065,Kisumu,Busia,Fri,Evening rush,Cloudy,Highway,No,Yes
+T066,Nakuru,Kericho,Sun,Midday,Sunny,Highway,Yes,Yes
+T067,Nairobi,Ngong,Mon,Night,Rain,Highway,No,No
+T068,Mombasa,Ukunda,Sun,Morning rush,Sunny,Town roads,No,No
+T069,Nairobi,Ngong,Wed,Evening rush,Cloudy,Highway,No,No
+T070,Mombasa,Kilifi,Sat,Evening rush,Sunny,Town roads,No,No
+T071,Mombasa,Mtwapa,Sun,Midday,Cloudy,Highway,No,No
+T072,Mombasa,Kilifi,Fri,Morning rush,Sunny,Highway,No,No
+T073,Nairobi,Ngong,Tue,Morning rush,Sunny,Town roads,No,No
+T074,Nairobi,Kitengela,Fri,Midday,Sunny,Town roads,Yes,Yes
+T075,Mombasa,Mtwapa,Mon,Evening rush,Sunny,Highway,No,No
+T076,Nairobi,Ngong,Wed,Evening rush,Cloudy,Highway,No,No
+T077,Nairobi,Nakuru,Thu,Midday,Rain,Town roads,Yes,Yes
+T078,Nairobi,Kiambu,Tue,Morning rush,Rain,Town roads,No,Yes
+T079,Mombasa,Voi,Wed,Evening rush,Rain,Highway,No,Yes
+T080,Nairobi,Machakos,Sat,Evening rush,Sunny,Town roads,Yes,Yes
+T081,Nairobi,Kitengela,Tue,Morning rush,Cloudy,Highway,Yes,Yes
+T082,Nairobi,Machakos,Sat,Evening rush,Rain,Highway,No,Yes
+T083,Nairobi,Nakuru,Wed,Midday,Sunny,Highway,No,No
+T084,Nairobi,Ngong,Wed,Morning rush,Sunny,Town roads,No,Yes
+T085,Nairobi,Kitengela,Sun,Midday,Cloudy,Town roads,No,No
+T086,Mombasa,Mtwapa,Sun,Evening rush,Cloudy,Highway,No,No
+T087,Nairobi,Kitengela,Fri,Morning rush,Sunny,Town roads,No,No
+T088,Nairobi,Machakos,Fri,Night,Rain,Highway,No,Yes
+T089,Nairobi,Thika,Fri,Morning rush,Sunny,Highway,No,No
+T090,Thika,Murang'a,Mon,Evening rush,Sunny,Town roads,No,No
+T091,Nairobi,Nakuru,Wed,Midday,Sunny,Highway,No,No
+T092,Nairobi,Nakuru,Thu,Evening rush,Cloudy,Highway,Yes,Yes
+T093,Nairobi,Kitengela,Fri,Midday,Cloudy,Highway,No,No
+T094,Nakuru,Eldoret,Thu,Morning rush,Sunny,Highway,No,No
+T095,Nairobi,Nakuru,Mon,Evening rush,Sunny,Town roads,No,No
+T096,Nairobi,Kitengela,Tue,Midday,Sunny,Town roads,No,No
+T097,Nairobi,Nakuru,Thu,Morning rush,Sunny,Highway,No,Yes
+T098,Nairobi,Nakuru,Wed,Morning rush,Cloudy,Highway,No,No
+T099,Nakuru,Kericho,Sat,Evening rush,Sunny,Town roads,No,No
+T100,Nairobi,Kiambu,Sat,Night,Sunny,Town roads,No,No
+T101,Mombasa,Malindi,Tue,Night,Rain,Town roads,No,Yes
+T102,Mombasa,Malindi,Tue,Morning rush,Sunny,Town roads,Yes,Yes
+T103,Mombasa,Voi,Sat,Evening rush,Sunny,Highway,No,No
+T104,Nakuru,Kericho,Fri,Evening rush,Sunny,Highway,No,Yes
+T105,Nairobi,Nakuru,Fri,Midday,Sunny,Town roads,Yes,Yes
+T106,Eldoret,Nakuru,Sun,Morning rush,Sunny,Highway,No,No
+T107,Nairobi,Naivasha,Sun,Morning rush,Sunny,Town roads,Yes,Yes
+T108,Nairobi,Machakos,Sun,Evening rush,Sunny,Town roads,No,No
+T109,Nairobi,Kitengela,Sun,Morning rush,Cloudy,Town roads,No,No
+T110,Nairobi,Thika,Wed,Midday,Cloudy,Town roads,Yes,Yes
+T111,Nairobi,Ngong,Tue,Midday,Sunny,Town roads,No,No
+T112,Nairobi,Kiambu,Fri,Midday,Cloudy,Highway,Yes,Yes
+T113,Nairobi,Ngong,Sat,Morning rush,Sunny,Town roads,No,No
+T114,Nakuru,Eldoret,Mon,Midday,Rain,Town roads,Yes,Yes
+T115,Mombasa,Malindi,Fri,Morning rush,Rain,Highway,No,Yes
+T116,Nairobi,Kitengela,Wed,Morning rush,Sunny,Highway,No,No
+T117,Nairobi,Ngong,Sun,Midday,Sunny,Highway,No,No
+T118,Nakuru,Naivasha,Tue,Midday,Sunny,Highway,Yes,Yes
+T119,Nakuru,Eldoret,Sun,Evening rush,Cloudy,Highway,No,No
+T120,Nairobi,Nakuru,Fri,Midday,Sunny,Highway,No,No
+T121,Mombasa,Ukunda,Thu,Midday,Sunny,Highway,No,No
+T122,Nakuru,Kericho,Fri,Morning rush,Cloudy,Highway,No,No
+T123,Mombasa,Mtwapa,Sat,Night,Sunny,Highway,No,No
+T124,Nairobi,Kiambu,Fri,Midday,Cloudy,Highway,No,No
+T125,Eldoret,Iten,Fri,Evening rush,Cloudy,Town roads,No,No
+T126,Nairobi,Kitengela,Tue,Midday,Sunny,Highway,Yes,Yes
+T127,Nairobi,Machakos,Sun,Evening rush,Rain,Town roads,Yes,No
+T128,Nairobi,Kitengela,Tue,Morning rush,Rain,Highway,Yes,Yes
+T129,Thika,Nairobi,Tue,Midday,Rain,Highway,No,Yes
+T130,Nairobi,Kiambu,Wed,Midday,Sunny,Town roads,No,No
+T131,Nairobi,Machakos,Mon,Midday,Sunny,Highway,Yes,Yes
+T132,Thika,Kiambu,Sat,Midday,Sunny,Town roads,Yes,No
+T133,Mombasa,Ukunda,Mon,Morning rush,Sunny,Highway,No,No
+T134,Mombasa,Kilifi,Fri,Night,Rain,Highway,No,Yes
+T135,Thika,Murang'a,Mon,Midday,Cloudy,Highway,No,No
+T136,Mombasa,Voi,Tue,Morning rush,Sunny,Highway,No,No
+T137,Eldoret,Iten,Tue,Midday,Sunny,Highway,Yes,Yes
+T138,Nairobi,Thika,Sat,Evening rush,Rain,Town roads,Yes,Yes
+T139,Mombasa,Voi,Fri,Midday,Cloudy,Highway,No,No
+T140,Nakuru,Eldoret,Fri,Evening rush,Sunny,Highway,No,Yes
+T141,Nakuru,Eldoret,Wed,Midday,Cloudy,Town roads,No,No
+T142,Mombasa,Mtwapa,Thu,Evening rush,Rain,Town roads,Yes,No
+T143,Mombasa,Voi,Tue,Evening rush,Sunny,Highway,Yes,Yes
+T144,Nairobi,Kiambu,Sat,Night,Sunny,Highway,Yes,Yes
+T145,Mombasa,Ukunda,Mon,Midday,Sunny,Town roads,No,No
+T146,Mombasa,Ukunda,Thu,Midday,Sunny,Town roads,No,No
+T147,Nairobi,Ngong,Mon,Evening rush,Cloudy,Highway,No,Yes
+T148,Nairobi,Machakos,Fri,Midday,Cloudy,Highway,No,No
+T149,Nairobi,Thika,Sat,Night,Sunny,Highway,No,No
+T150,Nairobi,Thika,Sun,Evening rush,Sunny,Highway,No,No
+T151,Nairobi,Kitengela,Mon,Evening rush,Cloudy,Highway,No,No
+T152,Nairobi,Ngong,Mon,Morning rush,Cloudy,Highway,No,No
+T153,Nairobi,Thika,Thu,Morning rush,Cloudy,Town roads,No,No
+T154,Nairobi,Kitengela,Wed,Midday,Rain,Town roads,No,Yes
+T155,Mombasa,Kilifi,Wed,Midday,Sunny,Town roads,No,No
+T156,Nairobi,Kiambu,Fri,Morning rush,Cloudy,Highway,No,No
+T157,Nairobi,Nakuru,Sun,Morning rush,Cloudy,Highway,Yes,Yes
+T158,Nakuru,Eldoret,Tue,Midday,Cloudy,Highway,Yes,Yes
+T159,Nairobi,Naivasha,Mon,Midday,Sunny,Town roads,No,No
+T160,Mombasa,Mtwapa,Wed,Evening rush,Sunny,Highway,No,Yes
+T161,Eldoret,Iten,Fri,Morning rush,Cloudy,Highway,Yes,No
+T162,Nairobi,Kitengela,Tue,Morning rush,Rain,Town roads,No,Yes
+T163,Nairobi,Kitengela,Tue,Midday,Cloudy,Town roads,No,Yes
+T164,Nairobi,Thika,Wed,Morning rush,Cloudy,Town roads,No,No
+T165,Nakuru,Nairobi,Sat,Night,Sunny,Town roads,No,No
+T166,Kisumu,Kisii,Sun,Midday,Sunny,Town roads,No,No
+T167,Nairobi,Machakos,Thu,Evening rush,Sunny,Highway,Yes,Yes
+T168,Nairobi,Kitengela,Mon,Night,Rain,Highway,No,Yes
+T169,Nairobi,Nakuru,Fri,Morning rush,Sunny,Town roads,Yes,Yes
+T170,Nairobi,Kiambu,Thu,Morning rush,Rain,Town roads,No,Yes
+T171,Nairobi,Kitengela,Wed,Morning rush,Cloudy,Town roads,No,No
+T172,Nairobi,Nakuru,Sat,Midday,Sunny,Town roads,No,No
+T173,Nairobi,Naivasha,Wed,Evening rush,Sunny,Highway,No,Yes
+T174,Nakuru,Nairobi,Mon,Evening rush,Cloudy,Town roads,No,No
+T175,Eldoret,Iten,Sat,Morning rush,Sunny,Highway,No,No
+T176,Nairobi,Nakuru,Tue,Morning rush,Sunny,Highway,No,No
+T177,Nairobi,Nakuru,Sat,Morning rush,Cloudy,Highway,No,No
+T178,Nairobi,Nakuru,Sun,Evening rush,Rain,Town roads,Yes,Yes
+T179,Nairobi,Kitengela,Thu,Midday,Sunny,Highway,No,No
+T180,Nairobi,Kiambu,Fri,Morning rush,Sunny,Town roads,No,No
+T181,Nairobi,Kiambu,Sat,Midday,Sunny,Town roads,Yes,No
+T182,Nakuru,Kericho,Tue,Morning rush,Sunny,Highway,No,No
+T183,Nairobi,Kitengela,Wed,Morning rush,Cloudy,Highway,No,Yes
+T184,Nairobi,Thika,Sun,Night,Sunny,Highway,No,No
+T185,Nairobi,Ngong,Sat,Midday,Rain,Town roads,No,Yes
+T186,Mombasa,Malindi,Mon,Midday,Cloudy,Highway,No,No
+T187,Mombasa,Kilifi,Sun,Night,Sunny,Highway,No,No
+T188,Mombasa,Mtwapa,Wed,Morning rush,Cloudy,Town roads,No,No
+T189,Mombasa,Voi,Sun,Night,Sunny,Town roads,No,No
+T190,Nairobi,Machakos,Tue,Midday,Rain,Highway,No,Yes
+T191,Mombasa,Malindi,Fri,Morning rush,Cloudy,Highway,Yes,No
+T192,Nakuru,Nairobi,Tue,Midday,Sunny,Highway,Yes,Yes
+T193,Mombasa,Ukunda,Tue,Evening rush,Sunny,Town roads,No,No
+T194,Nairobi,Ngong,Mon,Midday,Sunny,Highway,Yes,Yes
+T195,Nairobi,Kitengela,Mon,Evening rush,Cloudy,Town roads,No,No
+T196,Nakuru,Naivasha,Tue,Midday,Rain,Highway,No,Yes
+T197,Mombasa,Kilifi,Mon,Night,Cloudy,Highway,No,Yes
+T198,Mombasa,Ukunda,Tue,Morning rush,Sunny,Town roads,No,No
+T199,Nairobi,Thika,Sun,Midday,Sunny,Town roads,No,No
+T200,Nairobi,Naivasha,Fri,Midday,Sunny,Town roads,No,No
